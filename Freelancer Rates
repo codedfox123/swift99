@@ -1,0 +1,23 @@
+
+func dailyRateFrom(hourlyRate: Int) -> Double {
+  let dailyHours = 8
+    let y = Double(dailyHours * hourlyRate)
+    return y
+}
+
+func monthlyRateFrom(hourlyRate: Int, withDiscount discount: Double) -> Double {
+    let monthlyWorkDays : Double = 22
+    let dailyHours : Double = 8
+    let cento : Double = 100
+    let z = Double(hourlyRate)
+    let x = (((z * dailyHours) * monthlyWorkDays) * (1-discount / cento))
+return x.rounded()
+}
+
+func workdaysIn(budget: Double, hourlyRate: Int, withDiscount discount: Double) -> Double {
+    let dailyHours : Double = 8
+     let cento : Double = 100
+    let z = Double(hourlyRate)
+ let x = (budget / (dailyRateFrom(hourlyRate: hourlyRate) * (1 - discount * 0.01)))
+    return x.rounded(.down)
+}
